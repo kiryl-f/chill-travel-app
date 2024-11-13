@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chill Landing Page</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="cards_script.js"></script>
+</head>
+
+<body>
+    <header class="header" data-aos="fade-down">
+        <h1 class="welcome-text">Welcome to CHILL!</h1>
+        <p class="header-description">Your perfect travel companion whether you're a local or a tourist.</p>
+    </header>
+
+    <main class="content">
+
+        <section class="local-section" data-aos="fade-up">
+            <i class="fas fa-map-marker-alt"></i>
+            <h2 class="section-title">I AM A LOCAL</h2>
+            <p class="section-description">Explore your city's hidden gems and share your favorite spots with others.
+            </p>
+            <a href="#" class="cta-button">Explore Now</a>
+        </section>
+
+        <section class="tourist-section" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-globe-americas"></i>
+            <h2 class="section-title">I AM A TOURIST</h2>
+            <p class="section-description">Find the best travel tips, recommendations, and guides for your next
+                adventure.</p>
+            <a href="#" class="cta-button">Get Started</a>
+        </section>
+    </main>
+
+    <section class="about-us" data-aos="fade-up" data-aos-delay="400">
+        <h2 class="about-title">About Us</h2>
+        <p class="about-description">
+            CHILL is a travel platform that connects locals with tourists. Whether you're exploring a new city or
+            showing someone around, we bring you the best experiences.
+        </p>
+        <a href="#contact" class="cta-button">Contact Us</a>
+    </section>
+
+
+    <section class="testimonials" data-aos="fade-up" data-aos-delay="600">
+        <h2 class="section-title">What Our Users Say</h2>
+      
+        <div class="testimonial-carousel">
+          <div class="testimonial-cards" id="testimonial-cards"></div>
+      </section>
+
+
+    <footer class="footer">
+        <p>&copy; 2024 CHILL. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

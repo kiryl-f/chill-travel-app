@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #e3f1f8;
+  text-align: center;
+  color: #333;
+}
+
+.header {
+  background: linear-gradient(135deg, #1a2b53, #007bff);
+  padding: 50px 20px;
+  color: #fff;
+  text-align: center;
+}
+.header .welcome-text {
+  font-size: 5rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 550;
+  margin: 0;
+  margin-bottom: 4vh;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.header .header-description {
+  font-size: 1.2rem;
+  margin-top: 15px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5vw;
+  padding: 40px;
+  margin: 0 1vw;
+}
+.content .local-section,
+.content .tourist-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  flex-direction: column;
+  background-color: #1a2b53;
+  padding: 40px;
+  border-radius: 10px;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.content .local-section:hover,
+.content .tourist-section:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+.content .local-section .section-title,
+.content .tourist-section .section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 2vh;
+}
+.content .local-section .cta-button,
+.content .tourist-section .cta-button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #fff;
+  color: #1a2b53;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.content .local-section .cta-button:hover,
+.content .tourist-section .cta-button:hover {
+  background-color: #007bff;
+  transform: scale(1.05);
+}
+.content .local-section.tourist-section,
+.content .tourist-section.tourist-section {
+  background-color: #007bff;
+}
+.content .local-section.local-section i, .content .local-section.tourist-section i,
+.content .tourist-section.local-section i,
+.content .tourist-section.tourist-section i {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.about-us {
+  padding: 50px;
+  background-color: #f4f4f4;
+  color: #333;
+  text-align: center;
+}
+.about-us .about-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.about-us .about-description {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.testimonials {
+  padding: 50px;
+  background-color: #e3f1f8;
+}
+.testimonials .testimonial-carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin-top: 40px;
+}
+.testimonials .testimonial-carousel .testimonial-cards {
+  display: flex;
+  animation: slide 30s linear infinite;
+}
+.testimonials .testimonial-carousel .testimonial-card {
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 33.3333%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  margin-right: 15px;
+  text-align: left;
+}
+.testimonials .testimonial-carousel .testimonial-card .testimonial-profile-pic {
+  width: 60px;
+  height: 60px;
+  margin-right: 2vw;
+}
+.testimonials .testimonial-carousel .testimonial-card .testimonial-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.testimonials .testimonial-carousel .testimonial-card p {
+  font-style: italic;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.footer {
+  background-color: #1a2b53;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
+.footer .social-icons {
+  margin-top: 10px;
+}
+.footer .social-icons .social-icon {
+  margin: 0 10px;
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+}
+.footer .social-icons .social-icon:hover {
+  color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  .cta-button {
+    width: 100%;
+  }
+  .testimonial-cards {
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
