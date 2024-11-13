@@ -1,15 +1,16 @@
+// map_init.js
 document.addEventListener('DOMContentLoaded', function () {
-    const map = L.map('map').setView([51.505, -0.09], 13); // Default to London
-  
-    // Add a tile layer from OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-  
-    // Example marker
-    L.marker([51.505, -0.09]).addTo(map)
-      .bindPopup('Welcome to this beautiful destination!')
-      .openPopup();
-  });
-  
+    // Initialize the map
+    const map = new ol.Map({
+        target: 'map', // The ID of the element where the map will be rendered
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM(), // Use OpenStreetMap as the tile source
+            }),
+        ],
+        view: new ol.View({
+            center: ol.proj.fromLonLat([0, 0]), // Center of the map (longitude, latitude)
+            zoom: 2, // Initial zoom level
+        }),
+    });
+});
