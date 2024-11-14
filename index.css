@@ -233,6 +233,104 @@ body {
   color: #007bff;
 }
 
+/* Input Section Styling */
+.prompt-section {
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f7;
+  padding: 30px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+.prompt-section:hover {
+  background-color: #f1f1f1;
+}
+.prompt-section h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+.prompt-section #user-prompt {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  padding: 1vh;
+  font-size: 24px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.prompt-section #user-prompt:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+.prompt-section #user-prompt::placeholder {
+  color: #888;
+}
+.prompt-section #generate-btn {
+  font-family: "Roboto", sans-serif;
+}
+.prompt-section .output-section {
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  /* Typewriter effect animation */
+  /* Cursor blinking effect */
+}
+.prompt-section .output-section p#generated-text {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+.prompt-section .output-section .typewriter-text {
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #007BFF;
+  animation: typing 3s steps(30) 1s forwards, blinkCaret 0.75s step-end infinite;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blinkCaret {
+  50% {
+    border-color: transparent;
+  }
+}
+.prompt-section button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.prompt-section button:hover {
+  background-color: #0056b3;
+}
+.prompt-section button:active {
+  background-color: #004085;
+}
+
+/* Output Section Styling */
 @media (max-width: 768px) {
   .content {
     grid-template-columns: 1fr;

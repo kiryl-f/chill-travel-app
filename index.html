@@ -57,6 +57,67 @@
         </div>
     </section>
 
+    <section class="prompt">
+        <!-- Input for the user's destination prompt -->
+        <section class="prompt-section">
+            <h2>Where do you want to go?</h2>
+            <input type="text" id="user-prompt" placeholder="Enter your dream destination...">
+            <button id="generate-btn">Generate</button>
+        </section>
+
+        <!-- Display the generated text -->
+        <section class="output-section">
+            <p id="generated-text" class="typewriter-text"></p>
+        </section>
+    </section>
+
+    <script type="module">
+        // Import the library
+        import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
+
+        // Set up your API key securely
+        const API_KEY = "api"; // Replace with your actual API key
+        const genAI = new GoogleGenerativeAI(API_KEY);
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+        // Function to display text with a typewriter effect
+        function typeWriterEffect(text, element) {
+            let i = 0;
+            element.textContent = ''; // Clear any existing content
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 50); // Speed of the typewriter effect
+                }
+            }
+            type();
+        }
+
+        // Event listener for the Generate button
+        document.getElementById('generate-btn').addEventListener('click', async () => {
+            const userPrompt = document.getElementById('user-prompt').value;
+            if (!userPrompt.trim()) {
+                alert("Please enter a prompt!");
+                return;
+            }
+
+            try {
+                // Generate content using the API
+                const result = await model.generateContent(userPrompt);
+                const generatedText = result.response.text();
+
+                // Display the generated text with the typewriter effect
+                const outputElement = document.getElementById('generated-text');
+                typeWriterEffect(generatedText, outputElement);
+            } catch (error) {
+                console.error("Error generating content:", error);
+                alert("Failed to generate content. Please try again.");
+            }
+        });
+    </script>
+
+
     <section class="about-us" data-aos="fade-up" data-aos-delay="400">
         <h2 class="about-title">About Us</h2>
         <p class="about-description">
@@ -97,6 +158,14 @@
 
     <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
     <script src="map_init.js"></script>
+
+    <script type="importmap">
+        {
+          "imports": {
+            "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          }
+        }
+      </script>
 
 </body>
 
