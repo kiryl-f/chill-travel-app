@@ -114,8 +114,8 @@ body {
 }
 
 .about-us {
+  width: 100%;
   padding: 50px;
-  background-color: #f4f4f4;
   color: $text-color-dark;
   text-align: center;
 
@@ -272,16 +272,10 @@ body {
 .prompt-section {
   display: flex;
   flex-direction: column;
-  background-color: #f7f7f7;
+  
   padding: 30px;
   margin-bottom: 40px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-
-  &:hover {
-      background-color: #f1f1f1;
-  }
 
   h2 {
       font-size: 28px;

@@ -58,43 +58,37 @@
     </section>
 
     <section class="prompt">
-        <!-- Input for the user's destination prompt -->
         <section class="prompt-section">
             <h2>Where do you want to go?</h2>
             <input type="text" id="user-prompt" placeholder="Enter your dream destination...">
             <button id="generate-btn">Generate</button>
         </section>
 
-        <!-- Display the generated text -->
         <section class="output-section">
             <p id="generated-text" class="typewriter-text"></p>
         </section>
     </section>
 
     <script type="module">
-        // Import the library
         import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
 
-        // Set up your API key securely
-        const API_KEY = "api"; // Replace with your actual API key
+        const API_KEY = "API_KEY";
         const genAI = new GoogleGenerativeAI(API_KEY);
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-        // Function to display text with a typewriter effect
         function typeWriterEffect(text, element) {
             let i = 0;
-            element.textContent = ''; // Clear any existing content
+            element.textContent = '';
             function type() {
                 if (i < text.length) {
                     element.textContent += text.charAt(i);
                     i++;
-                    setTimeout(type, 50); // Speed of the typewriter effect
+                    setTimeout(type, 50);
                 }
             }
             type();
         }
 
-        // Event listener for the Generate button
         document.getElementById('generate-btn').addEventListener('click', async () => {
             const userPrompt = document.getElementById('user-prompt').value;
             if (!userPrompt.trim()) {
@@ -103,11 +97,9 @@
             }
 
             try {
-                // Generate content using the API
                 const result = await model.generateContent(userPrompt);
                 const generatedText = result.response.text();
 
-                // Display the generated text with the typewriter effect
                 const outputElement = document.getElementById('generated-text');
                 typeWriterEffect(generatedText, outputElement);
             } catch (error) {
