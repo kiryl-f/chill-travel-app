@@ -12,14 +12,62 @@ body {
   color: #333;
 }
 
-.header {
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #e3f1f8;
+  color: #007bff;
+}
+
+.sticky-header .logo h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  margin: 0;
+  color: #007bff;
+}
+
+.sticky-header .nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.sticky-header .nav-links a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.sticky-header .nav-links a:hover {
+  transform: scale(1.01);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .sticky-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sticky-header .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+.chill {
   background: linear-gradient(135deg, #1a2b53, #007bff);
   padding: 50px 20px;
   color: #fff;
   text-align: center;
   animation: gradientAnimation 10s infinite alternate;
 }
-.header .welcome-text {
+.chill .welcome-text {
   font-size: 5rem;
   font-family: "Montserrat", sans-serif;
   font-weight: 550;
@@ -27,10 +75,12 @@ body {
   margin-bottom: 4vh;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
+  user-select: none;
 }
-.header .header-description {
+.chill .chill-description {
   font-size: 1.2rem;
   margin-top: 15px;
+  user-select: none;
 }
 
 @keyframes gradientAnimation {
@@ -161,10 +211,10 @@ body {
 }
 .map-section .map-container {
   width: 100%;
-  height: 400px; /* Adjust the height as needed */
+  height: 400px;
   margin-top: 20px;
-  border-radius: 10px; /* Optional: Rounded corners for the map */
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for better presentation */
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .testimonials {
@@ -233,7 +283,6 @@ body {
   color: #007bff;
 }
 
-/* Input Section Styling */
 .prompt-section {
   display: flex;
   flex-direction: column;
@@ -242,10 +291,17 @@ body {
   border-radius: 8px;
 }
 .prompt-section h2 {
-  font-size: 28px;
+  font-family: "Roboto", sans-serif;
+  font-size: 34px;
   font-weight: bold;
   color: #333;
   margin-bottom: 20px;
+}
+.prompt-section #prompt-p {
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  margin-bottom: 40px;
 }
 .prompt-section #user-prompt {
   width: 100%;
@@ -268,6 +324,8 @@ body {
 }
 .prompt-section #generate-btn {
   font-family: "Roboto", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
 }
 .prompt-section .output-section {
   padding: 30px;
@@ -277,8 +335,6 @@ body {
   max-width: 700px;
   margin: 0 auto;
   text-align: center;
-  /* Typewriter effect animation */
-  /* Cursor blinking effect */
 }
 .prompt-section .output-section p#generated-text {
   font-size: 18px;
@@ -305,6 +361,39 @@ body {
     border-color: transparent;
   }
 }
+.prompt-section .tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.prompt-section .tags-container .tags-container .tag {
+  padding: 6px 12px;
+  border-radius: 16px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+.prompt-section .tags-container .tag {
+  padding: 6px 12px;
+  border-radius: 16px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+.prompt-section .tags-container .tag:hover {
+  opacity: 0.8;
+}
+.prompt-section .tag {
+  padding: 6px 12px;
+  border-radius: 16px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
 .prompt-section button {
   display: inline-block;
   margin-top: 20px;
@@ -324,7 +413,6 @@ body {
   background-color: #004085;
 }
 
-/* Output Section Styling */
 @media (max-width: 768px) {
   .content {
     grid-template-columns: 1fr;

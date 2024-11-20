@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Randomly select a destination from the array
     const randomDestination = destinations[Math.floor(Math.random() * destinations.length)];
 
+    document.getElementById('random-destination').innerText = 'Randomly selected destination: ' + randomDestination.name;
+
     // Initialize the map
     const map = new ol.Map({
         target: 'map', // The ID of the element where the map will be rendered
