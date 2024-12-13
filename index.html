@@ -76,6 +76,9 @@
             <p id="prompt-p">Let our AI-powered assistant generate some ideas for you!</p>
             <input type="text" id="user-prompt" placeholder="Enter your dream destination...">
             <button id="generate-btn">Generate</button>
+
+            <div id="loading" style="display: none;">Loading...</div>
+
         </section>
 
         <section class="output-section">
@@ -86,10 +89,10 @@
     </section>
 
 
-    <div class="tags-container">
+    <!-- <div class="tags-container">
         <span class="tag warm" data-value="warm">Warm</span>
         <span class="tag cheap" data-value="cheap">Cheap</span>
-    </div>
+    </div> -->
 
 
     <section class="about-us" data-aos="fade-up" data-aos-delay="400">
@@ -157,11 +160,11 @@
     </script>
     <script type="module">
         import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
-
-        const API_KEY = "API_KEY";
+    
+        const API_KEY = "";
         const genAI = new GoogleGenerativeAI(API_KEY);
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
+    
         function typeWriterEffect(text, element) {
             let i = 0;
             element.textContent = '';
@@ -169,28 +172,40 @@
                 if (i < text.length) {
                     element.textContent += text.charAt(i);
                     i++;
-                    setTimeout(type, 50);
+                    setTimeout(type, 30);
                 }
             }
             type();
         }
-
-        document.getElementById('generate-btn').addEventListener('click', async () => {
-            const userPrompt = 'Suggest where to go on holiday based on these tags:' + document.getElementById('user-prompt').value;
+    
+        const searchButton = document.getElementById('generate-btn');
+        const loadingElement = document.getElementById('loading');
+        const outputElement = document.getElementById('generated-text');
+        const promptInput = document.getElementById('user-prompt');
+    
+        searchButton.addEventListener('click', async () => {
+            const userPrompt = `Suggest where to go on holiday based on these tags: ${promptInput.value.trim()}`;
             if (!userPrompt.trim()) {
                 alert("Please enter a prompt!");
                 return;
             }
-
+    
+            // Show the loading element
+            loadingElement.style.display = 'block';
+            outputElement.textContent = '';
+    
             try {
                 const result = await model.generateContent(userPrompt);
                 const generatedText = result.response.text();
-
-                const outputElement = document.getElementById('generated-text');
+    
+                // Typewriter effect for the generated text
                 typeWriterEffect(generatedText, outputElement);
             } catch (error) {
                 console.error("Error generating content:", error);
                 alert("Failed to generate content. Please try again.");
+            } finally {
+                // Hide the loading element
+                loadingElement.style.display = 'none';
             }
         });
     </script>

@@ -386,9 +386,12 @@ body {
     margin: 0 auto;
     text-align: center;
 
-    p#generated-text {
+    #generated-text {
       font-size: 18px;
       color: #333;
+      margin-left: 10px;
+      margin-right: 10px;
+      font-weight: 400;
       line-height: 1.6;
       word-wrap: break-word;
     }
